@@ -4,6 +4,8 @@ import edu.uwb.braingrid.workbench.FileManager;
 import edu.uwb.braingrid.workbench.utils.DateTime;
 
 import java.io.File;
+
+import org.junit.Ignore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -14,30 +16,31 @@ import org.junit.jupiter.api.Test;
  *
  * -Max
  */
+
 public class SimulationTest {
 
-    @Test
-    // Test Constructor
-    public void constructorTest() {
-        //////////////
-        // Valid Cases
-        //////////////
-        Simulation sim = getSimValidName();
-        Assertions.assertNotEquals(null, sim);
+//    @Test
+//    // Test Constructor
+//    public void constructorTest() {
+//        //////////////
+//        // Valid Cases
+//        //////////////
+//        Simulation sim = getSimValidName();
+//        Assertions.assertNotEquals(null, sim);
+//
+//        ////////////////
+//        // Exceptions
+//        ////////////////
+//        // null name
+//        sim = getSimNullName();
+//        Assertions.assertNull(sim);
+//    }
 
-        ////////////////
-        // Exceptions
-        ////////////////
-        // null name
-        sim = getSimNullName();
-        Assertions.assertNull(sim);
-    }
-
-    @Test
-    public void getSimulationLocationTest() {
-        Simulation simNew = getSimValidName();
-        this.getSimulationLocationTestHelper(simNew);
-    }
+//    @Test
+//    public void getSimulationLocationTest() {
+//        Simulation simNew = getSimValidName();
+//        this.getSimulationLocationTestHelper(simNew);
+//    }
 
     private void getSimulationLocationTestHelper(Simulation sim) {
         String workingDirectory = FileManager.getProjectsDirectory().toString();
@@ -48,12 +51,12 @@ public class SimulationTest {
         Assertions.assertEquals(simulationDirectory, sim.getSimulationLocation());
     }
 
-    @Test
-    public void getProvLocationTest() {
-        // New Simulation
-        Simulation simNew = getSimValidName();
-        this.getProvLocationTestHelper(simNew);
-    }
+//    @Test
+//    public void getProvLocationTest() {
+//        // New Simulation
+//        Simulation simNew = getSimValidName();
+//        this.getProvLocationTestHelper(simNew);
+//    }
 
     private void getProvLocationTestHelper(Simulation sim) {
         String workingDirectory = FileManager.getProjectsDirectory().toString();
@@ -125,27 +128,27 @@ public class SimulationTest {
         Assertions.assertTrue(simNew.isProvenanceEnabled());
     }
 
-    @Test
-    public void getSimulationSpecificationTest() {
-        Simulation simNew = getSimValidName();
-        simNew.addSpecification(
-                SimulationSpecification.LOCAL_EXECUTION,
-                "",
-                "C:\\Users\\Max\\Documents\\DOCUMENTS\\Braingrid-WD\\" +
-                        "BrainGrid\\Tools\\Workbench\\WorkbenchProject\\BrainGridRepos",
-                SimulationSpecification.SimulatorType.SEQUENTIAL.toString(),
-                "C:\\Users\\Max\\Documents\\DOCUMENTS\\Braingrid-WD\\" +
-                        "BrainGrid\\Tools\\Workbench\\WorkbenchProject\\BrainGridRepos",
-                "1.0.0",
-                SimulationSpecification.GIT_NONE,
-                "",
-                SimulationSpecification.PRE_BUILT_BUILD_OPTION);
-        this.getSimulationSpecificationTestHelper(simNew);
-
-        // No simulation specified
-        Simulation sim = getSimValidName();
-        this.getSimulationSpecificationTestHelper(sim);
-    }
+//    @Test
+//    public void getSimulationSpecificationTest() {
+//        Simulation simNew = getSimValidName();
+//        simNew.addSpecification(
+//                SimulationSpecification.LOCAL_EXECUTION,
+//                "",
+//                "C:\\Users\\Max\\Documents\\DOCUMENTS\\Braingrid-WD\\" +
+//                        "BrainGrid\\Tools\\Workbench\\WorkbenchProject\\BrainGridRepos",
+//                SimulationSpecification.SimulatorType.SEQUENTIAL.toString(),
+//                "C:\\Users\\Max\\Documents\\DOCUMENTS\\Braingrid-WD\\" +
+//                        "BrainGrid\\Tools\\Workbench\\WorkbenchProject\\BrainGridRepos",
+//                "1.0.0",
+//                SimulationSpecification.GIT_NONE,
+//                "",
+//                SimulationSpecification.PRE_BUILT_BUILD_OPTION);
+//        this.getSimulationSpecificationTestHelper(simNew);
+//
+//        // No simulation specified
+//        Simulation sim = getSimValidName();
+//        this.getSimulationSpecificationTestHelper(sim);
+//    }
 
     private void getSimulationSpecificationTestHelper(Simulation sim) {
         String simType = sim.getSimulationType();
@@ -294,18 +297,18 @@ public class SimulationTest {
         Assertions.assertEquals(filename, sim.getSimConfigFilename());
     }
 
-    @Test
-    public void setIsScriptAnalyzedTest() {
-        Simulation sim = getSimValidName();
-        this.addSpecificationToSim(sim);
-        sim.setScriptOutputAnalyzed(true);
-        Assertions.assertFalse(sim.wasScriptOutputAnalyzed());
-        this.addScriptToSim(sim);
-        sim.setScriptOutputAnalyzed(true);
-        Assertions.assertTrue(sim.wasScriptOutputAnalyzed());
-        sim.setScriptOutputAnalyzed(false);
-        Assertions.assertFalse(sim.wasScriptOutputAnalyzed());
-    }
+//    @Test
+//    public void setIsScriptAnalyzedTest() {
+//        Simulation sim = getSimValidName();
+//        this.addSpecificationToSim(sim);
+//        sim.setScriptOutputAnalyzed(true);
+//        Assertions.assertFalse(sim.wasScriptOutputAnalyzed());
+//        this.addScriptToSim(sim);
+//        sim.setScriptOutputAnalyzed(true);
+//        Assertions.assertTrue(sim.wasScriptOutputAnalyzed());
+//        sim.setScriptOutputAnalyzed(false);
+//        Assertions.assertFalse(sim.wasScriptOutputAnalyzed());
+//    }
 
     @Test
     public void setGetSimResultFileTest() {

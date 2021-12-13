@@ -32,4 +32,22 @@ public class FileSelectorDirMgrTest {
         fs.addDir(resources);
         Assertions.assertEquals(resources, fs.getLastDir());
     }
+
+    @Test
+    public void testClear() {
+        FileSelectorDirMgr fs = new FileSelectorDirMgr();
+
+        File main = new File("./main");
+        fs.addDir(main);
+
+        fs.clear();
+        Assertions.assertNull(fs.getLastDir());
+
+        fs.addDir(main);
+        File resources = new File("./resources");
+        fs.addDir(resources);
+
+        fs.clear();
+        Assertions.assertNull(fs.getLastDir());
+    }
 }
