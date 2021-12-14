@@ -20,7 +20,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '8.0.144+1'
-        distribution: 'liberica'
+        distribution: 'microsoft'
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file WorkbenchProject/pom.xml
